@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <script>
+        function solonumeros(e){
+
+            key = e.keyCode || e.which;
+
+            teclado = String.fromCharCode(key);
+
+            numeros = "0123456789";
+
+            especiales = "8-37-38-46";
+
+            teclado_especial = false;
+
+            for (var i in especiales) {
+    
+                if (key==especiales[i]) {
+                    teclado_especial=true;
+                 }
+    
+            }
+            if (numeros.indexOf(teclado)==-1 && !teclado_especial) {
+                return false;
+            }
+
+        }
+    </script>
+    
+    <form action="" method="post" id="form">
+        <div class="form">
+            <h1>Registro</h1>
+            <div class="group">
+                <input type="text" name="" id="id" required onkeypress="return solonumeros(event)"><span class="barra"></span>
+                <label for="">ID</label>
+            </div>
+            <div class="group">
+                <input type="text" name="" id="name" required><span class="barra"></span>
+                <label for="">Name</label>
+            </div>
+            <div class="group">
+                <input type="text" name="" id="surname" required><span class="barra"></span>
+                <label for="">Surname</label>
+            </div>
+            <div class="group">
+                <input type="email" name="" id="email" required><span class="barra"></span>
+                <label for="">Email</label>
+            </div>
+            <div class="group">
+                <input type="text" name="" id="phone" required><span class="barra"></span>
+                <label for="">Phone</label>
+            </div>
+
+            <button type="button" class="btn btn-default" id="btnSaveUser">Registrar</button>
+            <br>
+            <button type="reset" id="clean">Clear</button>
+        </div>
+    </form>
+    
+    <div class="table">
+        <table class="table table-hover" id="listTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                </tr>
+        </thead>
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        </table>
+    </div>
+    <script src="mainUI.js"></script>
+</body>
+</html>
